@@ -1,0 +1,17 @@
+#interface {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  margin: 10rem auto;
+  gap: 1rem;
+}
+
+.io-interface {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#output {
+  background-color: gray;
+  pointer-events: none;
+}
