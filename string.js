@@ -24,9 +24,9 @@ const options = {
     const middleName = middleArray.join(" ");
 
     const startPosition = string.indexOf(middleName);
-    const endPoistion = startPosition + middleName.length - 1;
+    const endPosition = startPosition + middleName.length - 1;
 
-    return `${middleName} Start: ${startPosition} End: ${endPoistion}`;
+    return `${middleName} Start: ${startPosition} End: ${endPosition}`;
   },
   5: function (string) {
     if (string.endsWith(".jpg") || string.endsWith(".png")) {
@@ -45,16 +45,22 @@ const options = {
     return string;
   },
   8: function (string) {
+    let upperCase = false;
+    let result = " ";
+
     for (let i = 0; i < string.length; i++) {
-      if (string[i] === " " || string[i] === ",") {
-        console.log(string[i + 1]);
-        string = string.replace(string[i + 1], string[i + 1].toUpperCase());
+      let char = string[i];
+      if (upperCase) {
+        char = char.toUpperCase();
       }
+
+      upperCase = char === "-" || char === " ";
+      result += char;
     }
-    return string;
+
+    return result;
   },
 };
-
 btn.addEventListener("click", outputString);
 
 function outputString() {
